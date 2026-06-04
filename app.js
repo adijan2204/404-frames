@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Reached 100%, trigger auto camera click
             setTimeout(() => {
                 // Play Web Audio camera shutter tick sound
-                playShutterSound();
+                // playShutterSound();
                 
                 // Fire camera flash animation
                 if (shutterFlash) {
