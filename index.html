@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Frames | Fine Art Photography</title>
+    <!-- Google Fonts: Playfair Display for headers, Inter for UI/Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Vintage Background Overlays -->
+    <div class="vignette-overlay" aria-hidden="true"></div>
+    <div class="vintage-wash" aria-hidden="true"></div>
+    <div class="light-leak" aria-hidden="true"></div>
+
+    <!-- Elegant Film Preloader -->
+    <div id="preloader" class="preloader">
+        <!-- Split Panels (3D Glass Shatter) -->
+        <div class="preloader-panel panel-1" aria-hidden="true"></div>
+        <div class="preloader-panel panel-2" aria-hidden="true"></div>
+        <div class="preloader-panel panel-3" aria-hidden="true"></div>
+        <div class="preloader-panel panel-4" aria-hidden="true"></div>
+        <div class="preloader-panel panel-5" aria-hidden="true"></div>
+        <div class="preloader-panel panel-6" aria-hidden="true"></div>
+
+        <!-- Camera Viewfinder Overlay -->
+        <div class="viewfinder-overlay" aria-hidden="true">
+            <div class="viewfinder-corner top-left"></div>
+            <div class="viewfinder-corner top-right"></div>
+            <div class="viewfinder-corner bottom-left"></div>
+            <div class="viewfinder-corner bottom-right"></div>
+            <div class="viewfinder-grid"></div>
+
+            <!-- Viewfinder Readouts -->
+            <div class="viewfinder-readout top-left">
+                <span class="rec-status"><span class="rec-dot"></span>REC</span>
+                <span class="sep">|</span>
+                <span>MF</span>
+            </div>
+            <div class="viewfinder-readout top-right">
+                <span>RAW 14bit</span>
+                <span class="sep">|</span>
+                <span class="battery-status"><i class="fa-solid fa-battery-three-quarters"></i> 82%</span>
+            </div>
+            <div class="viewfinder-readout bottom-left">
+                <span>1/250s</span>
+                <span>F/2.8</span>
+                <span class="olive-text">ISO 400</span>
+            </div>
+            <div class="viewfinder-readout bottom-right">
+                <span class="exposure-scale">
+                    <span>-2</span>
+                    <span class="scale-ticks">
+                        <span>.</span><span>.</span><span class="zero">0</span><span>.</span><span>.</span>
+                        <span class="scale-arrow"></span>
+                    </span>
+                    <span>+2</span>
+                </span>
+                <span class="sep">|</span>
+                <span>3:2</span>
+            </div>
+        </div>
+
+        <div class="preloader-content">
+            <div class="preloader-logo" id="preloader-logo">
+                <span class="preloader-logo-num">404</span><span class="preloader-logo-text">Frames</span>
+            </div>
+            <div class="preloader-line-wrap" id="preloader-line-wrap">
+                <div class="preloader-line"></div>
+            </div>
+            <div class="preloader-counter" id="preloader-counter-wrap"><span id="preloader-pct">00</span>%</div>
+
+            <!-- Dynamic Enter Shutter Button -->
+            <button type="button" class="shutter-enter-btn" id="shutterBtn" style="display: none; opacity: 0;"
+                aria-label="Enter Portfolio">
+                <div class="shutter-ring">
+                    <span class="shutter-icon"><i class="fa-solid fa-camera"></i></span>
+                </div>
+                <span class="shutter-label">Capture Moment</span>
+            </button>
+        </div>
+        <!-- Camera Flash Overlay -->
+        <div class="shutter-flash" id="shutterFlash"></div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navigation Header -->
+    <header class="glass-header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-num">404</span><span class="logo-text">Frames</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">Behind the Lens</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#booking" class="nav-link">Book Session</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#booking" class="btn btn-outline nav-btn">Reserve Spot</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg"
+            style="background-image: linear-gradient(rgba(7, 7, 9, 0.4), rgba(7, 7, 9, 0.9)), url('assets/hero_bg.png');">
+        </div>
+        <div class="hero-content text-center">
+            <h5 class="hero-subtitle uppercase-tracking">Visual Artist</h5>
+            <h1 class="hero-title">Capturing <span class="olive-text font-italic">Eternity</span> in a Single Frame</h1>
+            <p class="hero-description">Specializing in high-fashion portraits, dramatic landscapes, and fine art
+                editorial wedding photography.</p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn btn-primary">View Galleries</a>
+                <a href="#booking" class="btn btn-secondary">Let's Create Together</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#about">
+                <span>Explore More</span>
+                <i class="fa-solid fa-chevron-down bounce"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Behind the Lens (About) Section -->
+    <section id="about" class="about-section padding-y">
+        <div class="container grid grid-2-col gap-lg align-center">
+            <div class="about-image-wrapper">
+                <div class="glow-effect"></div>
+                <img src="assets/photographer_profile.png" alt="Aditya Janrao Profile" class="about-image">
+                <div class="about-experience-badge">
+                    <span class="badge-num">4+</span>
+                    <span class="badge-text">Years of<br>Artistry</span>
+                </div>
+            </div>
+
+            <div class="about-details">
+                <h5 class="section-subtitle uppercase-tracking olive-text">Behind The Lens</h5>
+                <h2 class="section-title">Hi, I'm Aditya Janrao</h2>
+                <p class="about-lead">I believe that photography is not just about recording reality—it is about
+                    capturing the poetry, mystery, and atmosphere of a singular moment.</p>
+
+                <!-- Gear Showcase Grid -->
+                <div class="gear-container">
+                    <h4 class="gear-title"><i class="fa-solid fa-camera olive-text"></i> The Studio Arsenal</h4>
+                    <div class="gear-grid">
+                        <div class="gear-card" data-gear="61MP">
+                            <span class="gear-icon"><i class="fa-solid fa-camera-retro"></i></span>
+                            <div class="gear-info">
+                                <h5>Canon 5D Mark IV</h5>
+                                <p class="text-xs text-muted">30.4 MP Full-Frame CMOS</p>
+                            </div>
+                        </div>
+                        <div class="gear-card" data-gear="F/1.2">
+                            <span class="gear-icon"><i class="fa-solid fa-circle-dot"></i></span>
+                            <div class="gear-info">
+                                <h5>Canon RF 50mm f/1.8 STM</h5>
+                                <p class="text-xs text-muted">Ultra-Fast Luxury Portrait Lens</p>
+                            </div>
+                        </div>
+                        <div class="gear-card" data-gear="">
+                            <span class="gear-icon"><i class="fa-solid fa-chevron-right"></i></span>
+                            <div class="gear-info">
+                                <h5>RF 24-105mm f/4L IS USM</h5>
+                                <p class="text-xs text-muted">A professional "L-series" lens offering a constant \(f/4\)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="gear-card" data-gear="STROBE">
+                            <span class="gear-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                            <div class="gear-info">
+                                <h5>Profoto B10X</h5>
+                                <p class="text-xs text-muted">High-End Wireless Studio Strobe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery Section -->
+    <section id="portfolio" class="portfolio-section padding-y bg-alt">
+        <div class="container text-center margin-b-md">
+            <h5 class="section-subtitle uppercase-tracking olive-text">Curated Work</h5>
+            <h2 class="section-title">The Masterpieces</h2>
+
+            <!-- Filters -->
+            <div class="filter-wrapper">
+                <button class="filter-btn active" data-filter="all">All Stories</button>
+                <button class="filter-btn" data-filter="portrait">Portraits</button>
+                <button class="filter-btn" data-filter="landscape">Landscapes</button>
+                <button class="filter-btn" data-filter="wedding">Weddings</button>
+                <button class="filter-btn" data-filter="street">Street Art</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Curated Work Placeholder -->
+                <div class="empty-gallery-placeholder"
+                    style="grid-column: 1 / -1; text-align: center; padding: 6rem 1rem; border: 1px dashed rgba(128, 138, 92, 0.15); border-radius: 8px; background: rgba(255, 255, 255, 0.01);">
+                    <i class="fa-solid fa-images"
+                        style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3; color: var(--color-accent-olive);"></i>
+                    <h5
+                        style="letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.9rem; color: var(--color-text-primary); margin-bottom: 0.5rem;">
+                        Collection Under Curation</h5>
+                    <p class="text-xs text-muted" style="letter-spacing: 0.05em; opacity: 0.6;">Aditya is currently
+                        sorting and preparing the high-art photography gallery. New stories are dropping soon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section id="services" class="services-section padding-y">
+        <div class="container text-center margin-b-lg">
+            <h5 class="section-subtitle uppercase-tracking olive-text">Offerings</h5>
+            <h2 class="section-title">Premium Photography Packages</h2>
+            <p class="section-desc max-w-sm">Every package is designed with bespoke artistic direction, custom color
+                grading, and private high-res digital galleries.</p>
+        </div>
+
+        <div class="container grid grid-3-col gap-md">
+            <!-- Package 1 -->
+            <div class="pricing-card glass-card">
+                <div class="card-glow"></div>
+                <div class="pricing-header">
+                    <span class="pricing-icon"><i class="fa-solid fa-id-card"></i></span>
+                    <h3 class="pricing-title">Classic Portrait</h3>
+                    <div class="price"><span class="currency">Rs</span>450<span class="duration">/ session</span></div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> 2 Hour Studio Session</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> Custom Moodboarding</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> 15 Fine Art Retouched Images</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> Private Online Gallery</li>
+                        
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <a href="#booking" class="btn btn-outline full-width select-package-btn"
+                        data-package="Classic Portrait">Choose Package</a>
+                </div>
+            </div>
+
+            <!-- Package 2 (Featured) -->
+            <div class="pricing-card glass-card featured">
+                <div class="card-glow"></div>
+                <span class="popular-tag">MOST POPULAR</span>
+                <div class="pricing-header">
+                    <span class="pricing-icon"><i class="fa-solid fa-gem"></i></span>
+                    <h3 class="pricing-title">Fine Art Editorial</h3>
+                    <div class="price"><span class="currency">Rs</span>850<span class="duration">/ session</span></div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> 4 Hour Outdoor & Studio Session</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> Up to 2 Outfits & Locations</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> 30 Fine Art Retouched Images</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> Private High-Res Gallery</li>
+                        
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <a href="#booking" class="btn btn-primary full-width select-package-btn"
+                        data-package="Fine Art Editorial">Choose Package</a>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="pricing-card glass-card">
+                <div class="card-glow"></div>
+                <div class="pricing-header">
+                    <span class="pricing-icon"><i class="fa-solid fa-bell-concierge"></i></span>
+                    <h3 class="pricing-title">Luxury Event / Wedding</h3>
+                    <div class="price"><span class="currency">Rs</span>2,800<span class="duration">/ event</span></div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="pricing-features">
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> 8 Hours Full Day Coverage</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> Assistant Second Shooter</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> Drone Aerial Photography</li>
+                        <li><i class="fa-solid fa-circle-check olive-text"></i> 150+ Signature Edited Photos</li>
+                        
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <a href="#booking" class="btn btn-outline full-width select-package-btn"
+                        data-package="Luxury Event / Wedding">Choose Package</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section padding-y bg-alt">
+        <div class="container text-center margin-b-lg">
+            <h5 class="section-subtitle uppercase-tracking olive-text">Client Testimonials</h5>
+            <h2 class="section-title">Voices of Satisfaction</h2>
+        </div>
+
+        <div class="container testimonial-slider-container">
+            <div class="testimonial-slider" id="testimonialSlider">
+                <!-- Currently empty / No written reviews -->
+            </div>
+
+            <!-- Testimonial Navigation Dots -->
+            <div class="slider-controls">
+                <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous Slide"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <div class="slider-dots" id="sliderDots"></div>
+                <button class="slider-arrow next" id="sliderNext" aria-label="Next Slide"><i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / Contact Section -->
+    <section id="booking" class="booking-section padding-y">
+        <div class="container grid grid-2-col gap-lg align-stretch">
+
+            <!-- Left Info Column -->
+            <div class="booking-info flex-column justify-center">
+                <h5 class="section-subtitle uppercase-tracking olive-text">Schedule An Experience</h5>
+                <h2 class="section-title">Let's Create Something Timeless</h2>
+                <p class="booking-text text-muted">Ready to book a luxury session? Select your preferred date, pick a
+                    packaging slot, and we'll bring your artistic vision to life. If you have a custom corporate
+                    project, feel free to use the form to get a personalized quote.</p>
+
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <span class="contact-icon"><i class="fa-solid fa-envelope olive-text"></i></span>
+                        <div class="contact-details">
+                            <p class="text-xs text-muted">Email Us</p>
+                            <a href="mailto:hello@404frames.com" class="contact-link">404frames.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon"><i class="fa-solid fa-phone olive-text"></i></span>
+                        <div class="contact-details">
+                            <p class="text-xs text-muted">Direct Line</p>
+                            <a href="tel:+917499032210" class="contact-link">+91 7499032210</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon"><i class="fa-solid fa-location-dot olive-text"></i></span>
+                        <div class="contact-details">
+                            <p class="text-xs text-muted">Studio Address</p>
+                            <p class="contact-link">Nagpur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Interactive Form Column -->
+            <div class="booking-form-wrapper glass-card">
+                <div class="card-glow"></div>
+                <form id="bookingForm" class="booking-form" novalidate>
+                    <div class="form-row grid grid-2-col gap-sm">
+                        <div class="form-group">
+                            <label for="fullName">Your Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Your Name" required>
+                            <span class="error-msg">Name is required</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <span class="error-msg">Valid email is required</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="packageSelect">Select Your Package</label>
+                        <select id="packageSelect" name="packageSelect">
+                            <option value="Classic Portrait">Classic Portrait — 450 Rs/-</option>
+                            <option value="Fine Art Editorial" selected>Fine Art Editorial — 850 Rs/-</option>
+                            <option value="Luxury Event / Wedding">Luxury Event / Wedding — 2,800 Rs/-</option>
+                            <option value="Custom Project">Custom Commercial Project (Quote Required)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Date & Time Slot <span class="required">*</span></label>
+                        <div class="scheduler-card">
+                            <div class="grid grid-2-col gap-sm">
+                                <div class="date-input-wrapper">
+                                    <input type="date" id="bookingDate" required style="display: none;">
+                                    <div class="custom-calendar-trigger" id="calendarTrigger">
+                                        <i class="fa-regular fa-calendar calendar-trigger-icon"></i>
+                                        <span id="selectedDateText">Select Date...</span>
+                                        <i class="fa-solid fa-chevron-down calendar-chevron"></i>
+                                    </div>
+                                    <div class="calendar-widget-popup" id="calendarPopup">
+                                        <div class="calendar-header">
+                                            <button type="button" id="prevMonth" class="cal-nav-btn"><i
+                                                    class="fa-solid fa-chevron-left"></i></button>
+                                            <h4 id="currentMonthYear">June 2026</h4>
+                                            <button type="button" id="nextMonth" class="cal-nav-btn"><i
+                                                    class="fa-solid fa-chevron-right"></i></button>
+                                        </div>
+                                        <div class="calendar-weekdays">
+                                            <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                                        </div>
+                                        <div class="calendar-days" id="calendarDays">
+                                            <!-- Populated via JS -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="time-slots" id="timeSlotsContainer">
+                                    <!-- Populated via Javascript dynamically -->
+                                    <button type="button" class="time-slot-btn" data-time="09:00 AM">09:00 AM</button>
+                                    <button type="button" class="time-slot-btn active" data-time="02:00 PM">02:00
+                                        PM</button>
+                                    <button type="button" class="time-slot-btn" data-time="05:30 PM">05:30 PM</button>
+                                </div>
+                            </div>
+                            <span class="error-msg date-error">Please select a valid future date</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectVision">Your Vision (Creative Brief / Details)</label>
+                        <textarea id="projectVision" name="projectVision" rows="4"
+                            placeholder="Describe the style, location, mood, or concepts you want to explore..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary full-width" id="submitBookingBtn">
+                        <span class="btn-text">Request Booking Slot</span>
+                        <span class="btn-loader"><i class="fa-solid fa-circle-notch fa-spin"></i></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container grid grid-4-col gap-md footer-top">
+            <!-- Brand Column -->
+            <div class="footer-col footer-brand">
+                <a href="#" class="logo">
+                    <span class="olive-text">404 Frames</span> STUDIOS
+                </a>
+                <p class="footer-desc text-muted margin-t-sm">Artistic storytelling through premium photographic lenses,
+                    capturing beauty and dramatic atmospheres globally.</p>
+                <div class="social-links margin-t-md">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="500px"><i class="fa-brands fa-500px"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4 class="footer-title">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="#hero">Home Base</a></li>
+                    <li><a href="#about">Behind the Lens</a></li>
+                    <li><a href="#portfolio">Our Masterpieces</a></li>
+                    <li><a href="#services">Premium Services</a></li>
+                    <li><a href="#booking">Bookings</a></li>
+                </ul>
+            </div>
+
+            <!-- Galleries -->
+            <div class="footer-col">
+                <h4 class="footer-title">Galleries</h4>
+                <ul class="footer-links">
+                    <li><a href="#portfolio" data-footer-filter="portrait">High Fashion Portraits</a></li>
+                    <li><a href="#portfolio" data-footer-filter="landscape">Cinematic Landscapes</a></li>
+                    <li><a href="#portfolio" data-footer-filter="wedding">Fine Art Weddings</a></li>
+                    <li><a href="#portfolio" data-footer-filter="street">Moody Street Art</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-col">
+                <h4 class="footer-title">Weekly Digest</h4>
+                <p class="text-xs text-muted margin-b-sm">Subscribe to receive exclusive moodboards, post-processing
+                    tutorials, and booking discounts.</p>
+                <form class="newsletter-form" id="newsletterForm" novalidate>
+                    <div class="input-group">
+                        <input type="email" id="newsletterEmail" placeholder="your.email@domain.com" required>
+                        <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                    <span class="newsletter-success text-xs olive-text">Thank you for subscribing!</span>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container flex justify-between align-center">
+                <p class="copyright-text text-xs text-muted">&copy; 2026 404 Frames. All rights reserved. Created
+                    with absolute craftsmanship.</p>
+                <ul class="legal-links flex gap-sm">
+                    <li><a href="#" class="text-xs text-muted">Privacy Policy</a></li>
+                    <li><a href="#" class="text-xs text-muted">Terms of Artistry</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="lightbox-close-btn" id="lightboxClose" aria-label="Close Lightbox">&times;</div>
+
+        <div class="lightbox-nav-btn prev" id="lightboxPrev" aria-label="Previous Image">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+
+        <div class="lightbox-content-wrapper">
+            <figure class="lightbox-figure">
+                <img src="" alt="Lightbox Fullview" class="lightbox-img" id="lightboxImg">
+                <figcaption class="lightbox-caption" id="lightboxCaption">
+                    <span class="lightbox-cat uppercase-tracking" id="lightboxCat">Portrait</span>
+                    <h3 class="lightbox-title" id="lightboxTitle">Symphony of Shadows</h3>
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="lightbox-nav-btn next" id="lightboxNext" aria-label="Next Image">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <!-- Booking Confirmation Toast Notification -->
+    <div class="toast-notification" id="toastNotification">
+        <div class="toast-header">
+            <span class="toast-icon"><i class="fa-solid fa-circle-check"></i></span>
+            <strong class="toast-title">Booking Requested</strong>
+            <button class="toast-close" id="toastClose">&times;</button>
+        </div>
+        <div class="toast-body">
+            <p id="toastMessage">Your session has been tentatively reserved! We've sent details to your inbox.</p>
+        </div>
+    </div>
+
+
+
+    <!-- Script Entrypoint -->
+    <script src="app.js"></script>
+</body>
+
+</html>
