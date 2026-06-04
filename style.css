@@ -60,6 +60,27 @@ body::after {
     animation: grain 8s steps(10) infinite;
 }
 
+.site-watermark {
+    position: fixed;
+    inset: 0;
+    background-image: url('assets/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70vw;
+    opacity: 0.05;
+    filter: blur(1.5px) saturate(0.7);
+    pointer-events: none;
+    z-index: 9980;
+}
+
+@media (max-width: 768px) {
+    .site-watermark {
+        background-size: 90vw;
+        opacity: 0.05;
+        filter: blur(1.5px) saturate(0.7);
+    }
+}
+
 @keyframes grain {
 
     0%,
@@ -684,11 +705,26 @@ body::after {
 
 .preloader-logo {
     display: flex;
-    align-items: baseline;
-    gap: 0.6rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
     opacity: 0;
     transform: scale(0.9);
     animation: preloaderLogoFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+}
+
+.preloader-logo-img {
+    height: clamp(120px, 20vw, 200px);
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.preloader-logo-text-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
 }
 
 .preloader-logo-num {
@@ -1266,9 +1302,28 @@ button {
 
 .logo {
     display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
+    align-items: center;
+    gap: 1rem;
     text-decoration: none;
+}
+
+.glass-header .logo {
+    margin-left: 0;
+}
+
+.logo-icon-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 3.5rem;
+    margin-right: -35px;
+}
+
+.logo-img {
+    height: 72px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
 }
 
 .logo-num {
@@ -1298,6 +1353,8 @@ button {
 .nav-menu {
     display: flex;
     gap: 2.2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav-link {
@@ -2450,6 +2507,43 @@ a.contact-link:hover {
     background-size: 16px 16px, 347px 347px, 463px 463px, 250px 250px;
 }
 
+.site-footer .logo-img {
+    height: 270px;
+    width: auto;
+}
+
+.footer-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: -4rem;
+}
+
+.logo-text-sub {
+    font-size: 0.90rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--color-accent-olive);
+    font-family: var(--font-body);
+}
+
+.footer-storyline {
+    width: 100%;
+    padding: 1.25rem 0 0;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.footer-storyline .footer-desc {
+    max-width: 100%;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    white-space: nowrap;
+}
+
 .footer-top {
     padding-bottom: 5rem;
 }
@@ -2458,6 +2552,7 @@ a.contact-link:hover {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-width: 0;
 }
 
 .footer-desc {
@@ -2948,6 +3043,29 @@ a.contact-link:hover {
         left: 5%;
         right: 5%;
         bottom: 1rem;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+    }
+
+    .scheduler-card {
+        padding: 0.8rem;
+    }
+
+    .calendar-widget-popup {
+        left: auto;
+        right: 0;
+        min-width: 270px;
+        padding: 0.8rem;
+    }
+
+    .logo-img {
+        height: 46px;
+    }
+
+    .logo-icon-link {
+        margin-left: 1rem;
     }
 }
 

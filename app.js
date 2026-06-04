@@ -402,6 +402,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const timeSlots = document.querySelectorAll('.time-slot-btn');
     let selectedTimeSlot = ""; // No default selected value in UI
 
+    // Shared key-value store (KeyValue API by Immanuel.co) to check slots globally
+    const appKey = '2cax6glu';
+    let globalBookedSlots = [];
+
+    // Fetch globally booked slots on page load
+    async function fetchGlobalBookedSlots() {
+        try {
+            const response = await fetch(`https://keyvalue.immanuel.co/api/KeyVal/GetValue/${appKey}/booked_slots`);
+            if (response.ok) {
+                const data = await response.json();
+                if (data && typeof data === 'string') {
+                    globalBookedSlots = data.split(',').filter(Boolean);
+                } else {
+                    globalBookedSlots = [];
+                }
+                localStorage.setItem('global_booked_slots', JSON.stringify(globalBookedSlots));
+            } else {
+                globalBookedSlots = JSON.parse(localStorage.getItem('global_booked_slots') || '[]');
+            }
+        } catch (error) {
+            console.error('Error fetching global booked slots:', error);
+            globalBookedSlots = JSON.parse(localStorage.getItem('global_booked_slots') || '[]');
+        }
+        
+        // Refresh disabled time slots if date is selected
+        if (bookingDateInput && bookingDateInput.value) {
+            updateDisabledTimeSlots(bookingDateInput.value);
+        }
+    }
+
     // Helper to format Date object to YYYY-MM-DD in local time
     function getLocalDateString(date) {
         const yyyy = date.getFullYear();
@@ -540,11 +570,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Disabled time slot helper
     function updateDisabledTimeSlots(dateString) {
         if (!dateString) return;
-        const bookedSlots = JSON.parse(localStorage.getItem('booked_slots') || '[]');
+        const localBookedSlots = JSON.parse(localStorage.getItem('booked_slots') || '[]');
         timeSlots.forEach(slot => {
             const time = slot.getAttribute('data-time');
             const slotKey = `${dateString}_${time}`;
-            if (bookedSlots.includes(slotKey)) {
+            const safeSlotKey = slotKey.replace(/:/g, '-').replace(/ /g, '_');
+            
+            if (localBookedSlots.includes(slotKey) || globalBookedSlots.includes(safeSlotKey)) {
                 slot.classList.add('booked');
                 slot.classList.remove('active');
             } else {
@@ -572,6 +604,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize calendar
     renderCalendar();
+
+    // Fetch global bookings and sync
+    fetchGlobalBookedSlots();
 
     // Initial slots check
     if (bookingDateInput && bookingDateInput.value) {
@@ -754,7 +789,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Form Submit
-        bookingForm.addEventListener('submit', (e) => {
+        bookingForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const isNameValid = fullNameInput.value.trim() !== "";
@@ -783,15 +818,53 @@ document.addEventListener('DOMContentLoaded', () => {
             // Halt if the selected date and slot are already booked
             const chosenDate = bookingDateInput.value;
             const slotKey = `${chosenDate}_${selectedTimeSlot}`;
-            const bookedSlots = JSON.parse(localStorage.getItem('booked_slots') || '[]');
-            if (bookedSlots.includes(slotKey)) {
-                showToast("Already Booked!");
+            const safeSlotKey = slotKey.replace(/:/g, '-').replace(/ /g, '_');
+            
+            const localBookedSlots = JSON.parse(localStorage.getItem('booked_slots') || '[]');
+            if (localBookedSlots.includes(slotKey) || globalBookedSlots.includes(safeSlotKey)) {
+                showToast("This date and time slot is already booked!");
                 return;
             }
 
             // Fire Luxury Loading Animation on button
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
+
+            // Sync with global database first to ensure it's still available
+            try {
+                const checkResponse = await fetch(`https://keyvalue.immanuel.co/api/KeyVal/GetValue/${appKey}/booked_slots`);
+                let latestSlots = [];
+                if (checkResponse.ok) {
+                    const data = await checkResponse.json();
+                    if (data && typeof data === 'string') {
+                        latestSlots = data.split(',').filter(Boolean);
+                    }
+                }
+                
+                // If already booked by someone else in the meantime
+                if (latestSlots.includes(safeSlotKey)) {
+                    showToast("This slot was just booked by another client! Please choose another time.");
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                    globalBookedSlots = latestSlots;
+                    updateDisabledTimeSlots(chosenDate);
+                    return;
+                }
+                
+                // Book the slot
+                latestSlots.push(safeSlotKey);
+                const updatedData = latestSlots.join(',');
+                const updateResponse = await fetch(`https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/${appKey}/booked_slots/${encodeURIComponent(updatedData)}`, {
+                    method: 'POST',
+                    headers: { 'Content-Length': '0' }
+                });
+                
+                if (updateResponse.ok) {
+                    globalBookedSlots = latestSlots;
+                }
+            } catch (err) {
+                console.error("Failed to sync booking to cloud database:", err);
+            }
 
             setTimeout(() => {
                 submitBtn.classList.remove('loading');
@@ -805,7 +878,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Save booked slot to localStorage
                 const currentBookedSlots = JSON.parse(localStorage.getItem('booked_slots') || '[]');
-                currentBookedSlots.push(slotKey);
+                if (!currentBookedSlots.includes(slotKey)) {
+                    currentBookedSlots.push(slotKey);
+                }
                 localStorage.setItem('booked_slots', JSON.stringify(currentBookedSlots));
                 
                 // Format WhatsApp API redirect URL
@@ -855,7 +930,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Refresh slots display
                 updateDisabledTimeSlots(bookingDateInput.value);
                 
-            }, 1800); // 1.8 seconds processing duration simulation
+            }, 1000);
         });
     }
 

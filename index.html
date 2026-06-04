@@ -14,6 +14,8 @@
     <!-- FontAwesome for Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -22,6 +24,7 @@
     <div class="vignette-overlay" aria-hidden="true"></div>
     <div class="vintage-wash" aria-hidden="true"></div>
     <div class="light-leak" aria-hidden="true"></div>
+    <div class="site-watermark" aria-hidden="true"></div>
 
     <!-- Elegant Film Preloader -->
     <div id="preloader" class="preloader">
@@ -73,7 +76,10 @@
 
         <div class="preloader-content">
             <div class="preloader-logo" id="preloader-logo">
-                <span class="preloader-logo-num">404</span><span class="preloader-logo-text">Chronicles</span>
+                <img src="assets/logo.png" alt="404 Chronicles Logo" class="preloader-logo-img">
+                <div class="preloader-logo-text-wrapper">
+                    <span class="preloader-logo-num">404</span><span class="preloader-logo-text">Chronicles</span>
+                </div>
             </div>
             <div class="preloader-line-wrap" id="preloader-line-wrap">
                 <div class="preloader-line"></div>
@@ -99,7 +105,7 @@
     <!-- Navigation Header -->
     <header class="glass-header">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="#" class="logo logo-text-only">
                 <span class="logo-num">404</span><span class="logo-text">Chronicles</span>
             </a>
 
@@ -119,6 +125,10 @@
                     <span class="bar"></span>
                 </button>
             </div>
+
+            <a href="#" class="logo-icon-link">
+                <img src="assets/logo.png" alt="404 Chronicles Logo" class="logo-img">
+            </a>
         </div>
     </header>
 
@@ -128,7 +138,7 @@
             style="background-image: linear-gradient(rgba(7, 7, 9, 0.4), rgba(7, 7, 9, 0.9)), url('assets/hero_bg.png');">
         </div>
         <div class="hero-content text-center">
-            <h5 class="hero-subtitle uppercase-tracking">Visual Artist</h5>
+            <h5 class="hero-subtitle uppercase-tracking">Visual Artist <span class="bullet-sep" style="color: var(--color-accent-olive); opacity: 0.6; margin: 0 0.6rem;">&bull;</span> Capturing the Unseen</h5>
             <h1 class="hero-title">Capturing <span class="olive-text font-italic">Eternity</span> in a Single Frame</h1>
             <p class="hero-description">Specializing in high-fashion portraits, dramatic landscapes, and fine art
                 editorial wedding photography.</p>
@@ -463,13 +473,15 @@
         <div class="container grid grid-4-col gap-md footer-top">
             <!-- Brand Column -->
             <div class="footer-col footer-brand">
-                <a href="#" class="logo">
-                    <span class="logo-num">404</span><span class="logo-text">Chronicles</span>
-                    <span class="logo-text-sub"
-                        style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; color: var(--color-text-muted); margin-left: 0.3rem; font-family: var(--font-body);">Studios</span>
-                </a>
-                <p class="footer-desc text-muted margin-t-sm">Artistic storytelling through premium photographic lenses,
-                    capturing beauty and dramatic atmospheres globally.</p>
+                <div class="footer-logo-wrapper">
+                    <a href="#" class="logo">
+                        <img src="assets/logo.png" alt="404 Chronicles Logo" class="logo-img">
+                    </a>
+                    <span class="logo-text-sub">Capturing the Unseen</span>
+                </div>
+                <div class="footer-storyline">
+                    
+                </div>
                 <div class="social-links margin-t-md">
                     <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
