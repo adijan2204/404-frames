@@ -1316,7 +1316,7 @@ button {
     align-items: center;
     text-decoration: none;
     margin-left: 3.5rem;
-    margin-right: -35px;
+    margin-right: -25px;
 }
 
 .logo-img {
@@ -3065,7 +3065,7 @@ a.contact-link:hover {
     }
 
     .logo-icon-link {
-        margin-left: 0.3rem;
+        margin-left: 0.20rem;
     }
 }
 
