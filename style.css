@@ -2,22 +2,33 @@
    DESIGN SYSTEM & VARIABLES
    ========================================================================== */
 :root {
-    --color-bg-primary: #f5f2eb; /* Warm Alabaster / Soft Cream background */
-    --color-bg-secondary: #eae6dc; /* Warm sand secondary background */
-    --color-bg-tertiary: #dedad0; /* Stone warm gray */
-    --color-accent-olive: #626c42; /* Deep rich olive green for high contrast */
+    --color-bg-primary: #f5f2eb;
+    /* Warm Alabaster / Soft Cream background */
+    --color-bg-secondary: #eae6dc;
+    /* Warm sand secondary background */
+    --color-bg-tertiary: #dedad0;
+    /* Stone warm gray */
+    --color-accent-olive: #626c42;
+    /* Deep rich olive green for high contrast */
     --color-accent-olive-rgb: 98, 108, 66;
     --color-accent-olive-hover: #4a5231;
-    --color-text-primary: #1c1e17; /* Deep olive charcoal for excellent legibility */
-    --color-text-secondary: #505548; /* Muted dark slate green */
-    --color-text-muted: #84897a; /* Mossy grey-slate */
+    --color-text-primary: #1c1e17;
+    /* Deep olive charcoal for excellent legibility */
+    --color-text-secondary: #505548;
+    /* Muted dark slate green */
+    --color-text-muted: #84897a;
+    /* Mossy grey-slate */
 
-    --glass-bg: rgba(245, 242, 235, 0.85); /* Warm alabaster glass */
-    --glass-border: rgba(28, 30, 23, 0.08); /* Soft organic dark border */
-    --glass-border-olive: rgba(98, 108, 66, 0.2); /* Soft olive border */
+    --glass-bg: rgba(245, 242, 235, 0.85);
+    /* Warm alabaster glass */
+    --glass-border: rgba(28, 30, 23, 0.08);
+    /* Soft organic dark border */
+    --glass-border-olive: rgba(98, 108, 66, 0.2);
+    /* Soft olive border */
     --glass-blur: 20px;
 
-    --shadow-sm: 0 4px 12px rgba(28, 30, 23, 0.03); /* Soft warm shadows */
+    --shadow-sm: 0 4px 12px rgba(28, 30, 23, 0.03);
+    /* Soft warm shadows */
     --shadow-md: 0 10px 35px rgba(28, 30, 23, 0.05);
     --shadow-lg: 0 20px 55px rgba(28, 30, 23, 0.08);
     --shadow-olive: 0 0 30px rgba(98, 108, 66, 0.06);
@@ -42,7 +53,8 @@ body::after {
     width: 200%;
     height: 200%;
     background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E') repeat;
-    opacity: 0.045; /* Balanced visible grain texture */
+    opacity: 0.045;
+    /* Balanced visible grain texture */
     pointer-events: none;
     z-index: 9999;
     animation: grain 8s steps(10) infinite;
@@ -114,11 +126,13 @@ body::after {
 
 @keyframes vignetteBreath {
     0% {
-        opacity: 0.22; /* Vignette edges at ~22% strength */
+        opacity: 0.22;
+        /* Vignette edges at ~22% strength */
     }
 
     100% {
-        opacity: 0.28; /* Vignette edges at ~28% strength */
+        opacity: 0.28;
+        /* Vignette edges at ~28% strength */
     }
 }
 
@@ -132,7 +146,8 @@ body::after {
     background: linear-gradient(160deg,
             rgba(28, 18, 8, 0.05) 0%,
             rgba(12, 14, 6, 0.02) 50%,
-            rgba(18, 10, 4, 0.03) 100%); /* Balanced warm wash at ~25% strength */
+            rgba(18, 10, 4, 0.03) 100%);
+    /* Balanced warm wash at ~25% strength */
     pointer-events: none;
     z-index: 9997;
     mix-blend-mode: multiply;
@@ -147,7 +162,8 @@ body::after {
     height: 100%;
     background:
         radial-gradient(ellipse 30% 20% at 0% 0%, rgba(160, 110, 40, 0.04) 0%, transparent 70%),
-        radial-gradient(ellipse 18% 30% at 100% 100%, rgba(80, 50, 20, 0.02) 0%, transparent 70%); /* Light leak at ~25% strength */
+        radial-gradient(ellipse 18% 30% at 100% 100%, rgba(80, 50, 20, 0.02) 0%, transparent 70%);
+    /* Light leak at ~25% strength */
     pointer-events: none;
     z-index: 9996;
     animation: lightLeakPulse 12s ease-in-out infinite alternate;
@@ -685,11 +701,12 @@ body::after {
 }
 
 .preloader-logo-text {
-    font-family: var(--font-body);
-    font-size: clamp(1.2rem, 3.5vw, 2.2rem);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    font-weight: 500;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.05em;
     color: #ffffff;
 }
 
@@ -865,7 +882,7 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     background-color: var(--color-bg-primary);
-    background-image: 
+    background-image:
         url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='3' x2='16' y2='3' stroke='rgba(98, 108, 66, 0.08)' stroke-width='1.2'/%3E%3Cline x1='0' y1='8' x2='16' y2='8' stroke='rgba(74, 82, 49, 0.05)' stroke-width='0.8'/%3E%3Cline x1='0' y1='13' x2='16' y2='13' stroke='rgba(128, 138, 92, 0.07)' stroke-width='1.0'/%3E%3Cline x1='3' y1='0' x2='3' y2='16' stroke='rgba(98, 108, 66, 0.08)' stroke-width='1.2'/%3E%3Cline x1='8' y1='0' x2='8' y2='16' stroke='rgba(74, 82, 49, 0.05)' stroke-width='0.8'/%3E%3Cline x1='13' y1='0' x2='13' y2='16' stroke='rgba(128, 138, 92, 0.07)' stroke-width='1.0'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg width='347' height='347' viewBox='0 0 347 347' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 20,50 C 60,10 90,80 130,40' fill='none' stroke='rgba(98, 108, 66, 0.12)' stroke-width='0.8'/%3E%3Cpath d='M 250,90 C 290,140 210,180 260,220' fill='none' stroke='rgba(74, 82, 49, 0.1)' stroke-width='0.75'/%3E%3Cpath d='M 80,260 C 140,300 110,210 170,270' fill='none' stroke='rgba(128, 138, 92, 0.12)' stroke-width='0.9'/%3E%3Cpath d='M 170,40 Q 185,30 180,60' fill='none' stroke='rgba(128, 138, 92, 0.08)' stroke-width='0.5'/%3E%3Cpath d='M 95,140 Q 85,155 105,160' fill='none' stroke='rgba(98, 108, 66, 0.09)' stroke-width='0.6'/%3E%3Cline x1='290' y1='130' x2='315' y2='115' stroke='rgba(98, 108, 66, 0.11)' stroke-width='0.85'/%3E%3Cline x1='140' y1='190' x2='120' y2='215' stroke='rgba(74, 82, 49, 0.09)' stroke-width='0.55'/%3E%3Cpath d='M 145,100 C 155,125 185,95 195,130' fill='none' stroke='rgba(74, 82, 49, 0.11)' stroke-width='0.8'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg width='463' height='463' viewBox='0 0 463 463' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 120,80 C 70,120 180,100 110,160' fill='none' stroke='rgba(128, 138, 92, 0.11)' stroke-width='0.95'/%3E%3Cpath d='M 320,40 Q 300,90 350,110' fill='none' stroke='rgba(98, 108, 66, 0.09)' stroke-width='0.7'/%3E%3Cpath d='M 50,320 C 10,380 90,410 40,450' fill='none' stroke='rgba(74, 82, 49, 0.12)' stroke-width='0.85'/%3E%3Cpath d='M 280,290 C 330,250 380,350 420,310' fill='none' stroke='rgba(98, 108, 66, 0.13)' stroke-width='1.05'/%3E%3Cpath d='M 220,190 Q 240,170 235,210' fill='none' stroke='rgba(128, 138, 92, 0.07)' stroke-width='0.5'/%3E%3Cline x1='390' y1='210' x2='360' y2='240' stroke='rgba(74, 82, 49, 0.1)' stroke-width='0.6'/%3E%3Cline x1='180' y1='380' x2='210' y2='400' stroke='rgba(128, 138, 92, 0.12)' stroke-width='0.75'/%3E%3Cpath d='M 250,420 C 270,390 290,440 310,410' fill='none' stroke='rgba(98, 108, 66, 0.1)' stroke-width='0.65'/%3E%3C/svg%3E"),
@@ -1023,7 +1040,7 @@ button {
 
 .bg-alt {
     background-color: var(--color-bg-secondary);
-    background-image: 
+    background-image:
         url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='3' x2='16' y2='3' stroke='rgba(98, 108, 66, 0.08)' stroke-width='1.2'/%3E%3Cline x1='0' y1='8' x2='16' y2='8' stroke='rgba(74, 82, 49, 0.05)' stroke-width='0.8'/%3E%3Cline x1='0' y1='13' x2='16' y2='13' stroke='rgba(128, 138, 92, 0.07)' stroke-width='1.0'/%3E%3Cline x1='3' y1='0' x2='3' y2='16' stroke='rgba(98, 108, 66, 0.08)' stroke-width='1.2'/%3E%3Cline x1='8' y1='0' x2='8' y2='16' stroke='rgba(74, 82, 49, 0.05)' stroke-width='0.8'/%3E%3Cline x1='13' y1='0' x2='13' y2='16' stroke='rgba(128, 138, 92, 0.07)' stroke-width='1.0'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg width='347' height='347' viewBox='0 0 347 347' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 20,50 C 60,10 90,80 130,40' fill='none' stroke='rgba(98, 108, 66, 0.12)' stroke-width='0.8'/%3E%3Cpath d='M 250,90 C 290,140 210,180 260,220' fill='none' stroke='rgba(74, 82, 49, 0.1)' stroke-width='0.75'/%3E%3Cpath d='M 80,260 C 140,300 110,210 170,270' fill='none' stroke='rgba(128, 138, 92, 0.12)' stroke-width='0.9'/%3E%3Cpath d='M 170,40 Q 185,30 180,60' fill='none' stroke='rgba(128, 138, 92, 0.08)' stroke-width='0.5'/%3E%3Cpath d='M 95,140 Q 85,155 105,160' fill='none' stroke='rgba(98, 108, 66, 0.09)' stroke-width='0.6'/%3E%3Cline x1='290' y1='130' x2='315' y2='115' stroke='rgba(98, 108, 66, 0.11)' stroke-width='0.85'/%3E%3Cline x1='140' y1='190' x2='120' y2='215' stroke='rgba(74, 82, 49, 0.09)' stroke-width='0.55'/%3E%3Cpath d='M 145,100 C 155,125 185,95 195,130' fill='none' stroke='rgba(74, 82, 49, 0.11)' stroke-width='0.8'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg width='463' height='463' viewBox='0 0 463 463' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 120,80 C 70,120 180,100 110,160' fill='none' stroke='rgba(128, 138, 92, 0.11)' stroke-width='0.95'/%3E%3Cpath d='M 320,40 Q 300,90 350,110' fill='none' stroke='rgba(98, 108, 66, 0.09)' stroke-width='0.7'/%3E%3Cpath d='M 50,320 C 10,380 90,410 40,450' fill='none' stroke='rgba(74, 82, 49, 0.12)' stroke-width='0.85'/%3E%3Cpath d='M 280,290 C 330,250 380,350 420,310' fill='none' stroke='rgba(98, 108, 66, 0.13)' stroke-width='1.05'/%3E%3Cpath d='M 220,190 Q 240,170 235,210' fill='none' stroke='rgba(128, 138, 92, 0.07)' stroke-width='0.5'/%3E%3Cline x1='390' y1='210' x2='360' y2='240' stroke='rgba(74, 82, 49, 0.1)' stroke-width='0.6'/%3E%3Cline x1='180' y1='380' x2='210' y2='400' stroke='rgba(128, 138, 92, 0.12)' stroke-width='0.75'/%3E%3Cpath d='M 250,420 C 270,390 290,440 310,410' fill='none' stroke='rgba(98, 108, 66, 0.1)' stroke-width='0.65'/%3E%3C/svg%3E"),
@@ -1269,11 +1286,12 @@ button {
 }
 
 .logo-text {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.05em;
     color: var(--color-text-primary);
 }
 
@@ -1381,7 +1399,8 @@ button {
 }
 
 .hero-subtitle {
-    color: #b2c295; /* Bright Sage Olive for visibility on dark image */
+    color: #b2c295;
+    /* Bright Sage Olive for visibility on dark image */
     margin-bottom: 1.5rem;
 }
 
@@ -1914,6 +1933,9 @@ button {
     display: flex;
     align-items: baseline;
     line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
 }
 
 .price .currency {
@@ -2132,7 +2154,8 @@ a.contact-link:hover {
 .form-group textarea {
     width: 100%;
     background: #ffffff;
-    border: 1px solid rgba(98, 108, 66, 0.35); /* Visible Olive Border */
+    border: 1px solid rgba(98, 108, 66, 0.35);
+    /* Visible Olive Border */
     border-radius: 6px;
     padding: 0.9rem 1.2rem;
     font-size: 0.95rem;
@@ -2170,7 +2193,8 @@ a.contact-link:hover {
 
 /* Scheduler Widget */
 .scheduler-card {
-    border: 1px solid rgba(98, 108, 66, 0.25); /* Visible Olive Border */
+    border: 1px solid rgba(98, 108, 66, 0.25);
+    /* Visible Olive Border */
     background: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     padding: 1.2rem;
@@ -2187,7 +2211,8 @@ a.contact-link:hover {
     justify-content: space-between;
     width: 100%;
     background: #ffffff;
-    border: 1px solid rgba(98, 108, 66, 0.35); /* Visible Olive Border */
+    border: 1px solid rgba(98, 108, 66, 0.35);
+    /* Visible Olive Border */
     border-radius: 6px;
     padding: 0.9rem 1.2rem;
     font-size: 0.95rem;
@@ -2347,7 +2372,8 @@ a.contact-link:hover {
     padding: 0.65rem 1rem;
     font-size: 0.78rem;
     font-weight: 500;
-    border: 1px solid rgba(98, 108, 66, 0.3); /* Visible Olive Border */
+    border: 1px solid rgba(98, 108, 66, 0.3);
+    /* Visible Olive Border */
     border-radius: 4px;
     background: #ffffff;
     color: var(--color-text-secondary);
@@ -2414,7 +2440,7 @@ a.contact-link:hover {
    ========================================================================== */
 .site-footer {
     background-color: var(--color-bg-secondary);
-    background-image: 
+    background-image:
         url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='3' x2='16' y2='3' stroke='rgba(98, 108, 66, 0.08)' stroke-width='1.2'/%3E%3Cline x1='0' y1='8' x2='16' y2='8' stroke='rgba(74, 82, 49, 0.05)' stroke-width='0.8'/%3E%3Cline x1='0' y1='13' x2='16' y2='13' stroke='rgba(128, 138, 92, 0.07)' stroke-width='1.0'/%3E%3Cline x1='3' y1='0' x2='3' y2='16' stroke='rgba(98, 108, 66, 0.08)' stroke-width='1.2'/%3E%3Cline x1='8' y1='0' x2='8' y2='16' stroke='rgba(74, 82, 49, 0.05)' stroke-width='0.8'/%3E%3Cline x1='13' y1='0' x2='13' y2='16' stroke='rgba(128, 138, 92, 0.07)' stroke-width='1.0'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg width='347' height='347' viewBox='0 0 347 347' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 20,50 C 60,10 90,80 130,40' fill='none' stroke='rgba(98, 108, 66, 0.12)' stroke-width='0.8'/%3E%3Cpath d='M 250,90 C 290,140 210,180 260,220' fill='none' stroke='rgba(74, 82, 49, 0.1)' stroke-width='0.75'/%3E%3Cpath d='M 80,260 C 140,300 110,210 170,270' fill='none' stroke='rgba(128, 138, 92, 0.12)' stroke-width='0.9'/%3E%3Cpath d='M 170,40 Q 185,30 180,60' fill='none' stroke='rgba(128, 138, 92, 0.08)' stroke-width='0.5'/%3E%3Cpath d='M 95,140 Q 85,155 105,160' fill='none' stroke='rgba(98, 108, 66, 0.09)' stroke-width='0.6'/%3E%3Cline x1='290' y1='130' x2='315' y2='115' stroke='rgba(98, 108, 66, 0.11)' stroke-width='0.85'/%3E%3Cline x1='140' y1='190' x2='120' y2='215' stroke='rgba(74, 82, 49, 0.09)' stroke-width='0.55'/%3E%3Cpath d='M 145,100 C 155,125 185,95 195,130' fill='none' stroke='rgba(74, 82, 49, 0.11)' stroke-width='0.8'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg width='463' height='463' viewBox='0 0 463 463' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 120,80 C 70,120 180,100 110,160' fill='none' stroke='rgba(128, 138, 92, 0.11)' stroke-width='0.95'/%3E%3Cpath d='M 320,40 Q 300,90 350,110' fill='none' stroke='rgba(98, 108, 66, 0.09)' stroke-width='0.7'/%3E%3Cpath d='M 50,320 C 10,380 90,410 40,450' fill='none' stroke='rgba(74, 82, 49, 0.12)' stroke-width='0.85'/%3E%3Cpath d='M 280,290 C 330,250 380,350 420,310' fill='none' stroke='rgba(98, 108, 66, 0.13)' stroke-width='1.05'/%3E%3Cpath d='M 220,190 Q 240,170 235,210' fill='none' stroke='rgba(128, 138, 92, 0.07)' stroke-width='0.5'/%3E%3Cline x1='390' y1='210' x2='360' y2='240' stroke='rgba(74, 82, 49, 0.1)' stroke-width='0.6'/%3E%3Cline x1='180' y1='380' x2='210' y2='400' stroke='rgba(128, 138, 92, 0.12)' stroke-width='0.75'/%3E%3Cpath d='M 250,420 C 270,390 290,440 310,410' fill='none' stroke='rgba(98, 108, 66, 0.1)' stroke-width='0.65'/%3E%3C/svg%3E"),
@@ -2798,6 +2824,10 @@ a.contact-link:hover {
     .grid-2-col,
     .grid-3-col {
         grid-template-columns: 1fr;
+    }
+
+    .about-details .section-title {
+        font-size: 2.0rem;
     }
 
     .about-image-wrapper {

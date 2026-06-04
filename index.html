@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Frames | Fine Art Photography</title>
+    <title>404 Chronicles | Fine Art Photography</title>
     <!-- Google Fonts: Playfair Display for headers, Inter for UI/Body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,7 +73,7 @@
 
         <div class="preloader-content">
             <div class="preloader-logo" id="preloader-logo">
-                <span class="preloader-logo-num">404</span><span class="preloader-logo-text">Frames</span>
+                <span class="preloader-logo-num">404</span><span class="preloader-logo-text">Chronicles</span>
             </div>
             <div class="preloader-line-wrap" id="preloader-line-wrap">
                 <div class="preloader-line"></div>
@@ -100,7 +100,7 @@
     <header class="glass-header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <span class="logo-num">404</span><span class="logo-text">Frames</span>
+                <span class="logo-num">404</span><span class="logo-text">Chronicles</span>
             </a>
 
             <nav class="nav-menu" id="navMenu">
@@ -150,7 +150,7 @@
         <div class="container grid grid-2-col gap-lg align-center">
             <div class="about-image-wrapper">
                 <div class="glow-effect"></div>
-                <img src="assets/photographer_profile.png" alt="Aditya Janrao Profile" class="about-image">
+                <img src="assets/photographer_profile.png" alt="Vishwabhushan Profile" class="about-image">
                 <div class="about-experience-badge">
                     <span class="badge-num">4+</span>
                     <span class="badge-text">Years of<br>Artistry</span>
@@ -159,7 +159,7 @@
 
             <div class="about-details">
                 <h5 class="section-subtitle uppercase-tracking olive-text">Behind The Lens</h5>
-                <h2 class="section-title">Hi, I'm Aditya Janrao</h2>
+                <h2 class="section-title">Hi, I'm Vishwabhushan</h2>
                 <p class="about-lead">I believe that photography is not just about recording reality—it is about
                     capturing the poetry, mystery, and atmosphere of a singular moment.</p>
 
@@ -259,7 +259,7 @@
                         <li><i class="fa-solid fa-circle-check olive-text"></i> Custom Moodboarding</li>
                         <li><i class="fa-solid fa-circle-check olive-text"></i> 15 Fine Art Retouched Images</li>
                         <li><i class="fa-solid fa-circle-check olive-text"></i> Private Online Gallery</li>
-                        
+
                     </ul>
                 </div>
                 <div class="pricing-footer">
@@ -268,10 +268,9 @@
                 </div>
             </div>
 
-            <!-- Package 2 (Featured) -->
-            <div class="pricing-card glass-card featured">
+            <!-- Package 2 -->
+            <div class="pricing-card glass-card">
                 <div class="card-glow"></div>
-                <span class="popular-tag">MOST POPULAR</span>
                 <div class="pricing-header">
                     <span class="pricing-icon"><i class="fa-solid fa-gem"></i></span>
                     <h3 class="pricing-title">Fine Art Editorial</h3>
@@ -283,11 +282,11 @@
                         <li><i class="fa-solid fa-circle-check olive-text"></i> Up to 2 Outfits & Locations</li>
                         <li><i class="fa-solid fa-circle-check olive-text"></i> 30 Fine Art Retouched Images</li>
                         <li><i class="fa-solid fa-circle-check olive-text"></i> Private High-Res Gallery</li>
-                        
+
                     </ul>
                 </div>
                 <div class="pricing-footer">
-                    <a href="#booking" class="btn btn-primary full-width select-package-btn"
+                    <a href="#booking" class="btn btn-outline full-width select-package-btn"
                         data-package="Fine Art Editorial">Choose Package</a>
                 </div>
             </div>
@@ -306,7 +305,7 @@
                         <li><i class="fa-solid fa-circle-check olive-text"></i> Assistant Second Shooter</li>
                         <li><i class="fa-solid fa-circle-check olive-text"></i> Drone Aerial Photography</li>
                         <li><i class="fa-solid fa-circle-check olive-text"></i> 150+ Signature Edited Photos</li>
-                        
+
                     </ul>
                 </div>
                 <div class="pricing-footer">
@@ -357,7 +356,7 @@
                         <span class="contact-icon"><i class="fa-solid fa-envelope olive-text"></i></span>
                         <div class="contact-details">
                             <p class="text-xs text-muted">Email Us</p>
-                            <a href="mailto:hello@404frames.com" class="contact-link">404frames.com</a>
+                            <a href="mailto:hello@404chronicles.com" class="contact-link">chronicles404.com</a>
                         </div>
                     </div>
                     <div class="contact-card">
@@ -380,7 +379,7 @@
             <!-- Right Interactive Form Column -->
             <div class="booking-form-wrapper glass-card">
                 <div class="card-glow"></div>
-                <form id="bookingForm" class="booking-form" novalidate>
+                <form id="bookingForm" class="booking-form" autocomplete="off" novalidate>
                     <div class="form-row grid grid-2-col gap-sm">
                         <div class="form-group">
                             <label for="fullName">Your Full Name <span class="required">*</span></label>
@@ -395,13 +394,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="packageSelect">Select Your Package</label>
-                        <select id="packageSelect" name="packageSelect">
+                        <label for="packageSelect">Select Your Package <span class="required">*</span></label>
+                        <select id="packageSelect" name="packageSelect" autocomplete="off" required>
+                            <option value="" disabled selected hidden>Select a package...</option>
                             <option value="Classic Portrait">Classic Portrait — 450 Rs/-</option>
-                            <option value="Fine Art Editorial" selected>Fine Art Editorial — 850 Rs/-</option>
+                            <option value="Fine Art Editorial">Fine Art Editorial — 850 Rs/-</option>
                             <option value="Luxury Event / Wedding">Luxury Event / Wedding — 2,800 Rs/-</option>
                             <option value="Custom Project">Custom Commercial Project (Quote Required)</option>
                         </select>
+                        <span class="error-msg">Please select a package</span>
                     </div>
 
                     <div class="form-group">
@@ -434,8 +435,7 @@
                                 <div class="time-slots" id="timeSlotsContainer">
                                     <!-- Populated via Javascript dynamically -->
                                     <button type="button" class="time-slot-btn" data-time="09:00 AM">09:00 AM</button>
-                                    <button type="button" class="time-slot-btn active" data-time="02:00 PM">02:00
-                                        PM</button>
+                                    <button type="button" class="time-slot-btn" data-time="02:00 PM">02:00 PM</button>
                                     <button type="button" class="time-slot-btn" data-time="05:30 PM">05:30 PM</button>
                                 </div>
                             </div>
@@ -464,7 +464,9 @@
             <!-- Brand Column -->
             <div class="footer-col footer-brand">
                 <a href="#" class="logo">
-                    <span class="olive-text">404 Frames</span> STUDIOS
+                    <span class="logo-num">404</span><span class="logo-text">Chronicles</span>
+                    <span class="logo-text-sub"
+                        style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; color: var(--color-text-muted); margin-left: 0.3rem; font-family: var(--font-body);">Studios</span>
                 </a>
                 <p class="footer-desc text-muted margin-t-sm">Artistic storytelling through premium photographic lenses,
                     capturing beauty and dramatic atmospheres globally.</p>
@@ -516,7 +518,7 @@
 
         <div class="footer-bottom">
             <div class="container flex justify-between align-center">
-                <p class="copyright-text text-xs text-muted">&copy; 2026 404 Frames. All rights reserved. Created
+                <p class="copyright-text text-xs text-muted">&copy; 2026 404 Chronicles. All rights reserved. Created
                     with absolute craftsmanship.</p>
                 <ul class="legal-links flex gap-sm">
                     <li><a href="#" class="text-xs text-muted">Privacy Policy</a></li>

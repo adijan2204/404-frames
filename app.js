@@ -377,6 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (packageSelectDropdown) {
                 packageSelectDropdown.value = packageName;
+                validateField(packageSelectDropdown, true);
                 
                 // Trigger outline highlight animation
                 packageSelectDropdown.focus();
@@ -399,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const bookingDateInput = document.getElementById('bookingDate');
     const timeSlots = document.querySelectorAll('.time-slot-btn');
-    let selectedTimeSlot = "02:00 PM"; // Default selected value in UI
+    let selectedTimeSlot = ""; // No default selected value in UI
 
     // Helper to format Date object to YYYY-MM-DD in local time
     function getLocalDateString(date) {
@@ -420,15 +421,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const dateInputWrapper = document.querySelector('.date-input-wrapper');
 
     let calendarDate = new Date();
-    let selectedDate = new Date();
-    selectedDate.setDate(selectedDate.getDate() + 1); // Default selection: Tomorrow
+    let selectedDate = null; // No default selected date
     
-    // Set hidden input value to default tomorrow value
+    // Keep inputs unpopulated on startup
     if (bookingDateInput) {
-        bookingDateInput.value = getLocalDateString(selectedDate);
+        bookingDateInput.value = "";
     }
     if (selectedDateText) {
-        selectedDateText.textContent = selectedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        selectedDateText.textContent = "Select Date...";
     }
 
     // Toggle Calendar Dropdown Popup
@@ -552,16 +552,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // If the currently selected time slot became booked, select the first available slot
-        const currentActiveSlot = Array.from(timeSlots).find(s => s.classList.contains('active'));
-        if (!currentActiveSlot) {
-            const firstAvailable = Array.from(timeSlots).find(s => !s.classList.contains('booked'));
-            if (firstAvailable) {
-                firstAvailable.classList.add('active');
-                selectedTimeSlot = firstAvailable.getAttribute('data-time');
-            } else {
-                selectedTimeSlot = ""; // All slots booked for this date
+        // If a time slot was already selected but became booked, select the first available slot
+        if (selectedTimeSlot) {
+            const currentActiveSlot = Array.from(timeSlots).find(s => s.classList.contains('active'));
+            if (!currentActiveSlot) {
+                const firstAvailable = Array.from(timeSlots).find(s => !s.classList.contains('booked'));
+                if (firstAvailable) {
+                    firstAvailable.classList.add('active');
+                    selectedTimeSlot = firstAvailable.getAttribute('data-time');
+                } else {
+                    selectedTimeSlot = ""; // All slots booked for this date
+                }
             }
+        } else {
+            // Keep slot selection empty if none was selected
+            timeSlots.forEach(s => s.classList.remove('active'));
         }
     }
 
@@ -734,6 +739,12 @@ document.addEventListener('DOMContentLoaded', () => {
             validateField(emailInput, emailPattern.test(emailInput.value.trim()));
         });
 
+        if (packageSelectDropdown) {
+            packageSelectDropdown.addEventListener('change', () => {
+                validateField(packageSelectDropdown, packageSelectDropdown.value !== "");
+            });
+        }
+
         bookingDateInput.addEventListener('change', () => {
             const dateVal = bookingDateInput.value;
             validateField(bookingDateInput, dateVal !== "");
@@ -749,19 +760,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const isNameValid = fullNameInput.value.trim() !== "";
             const isEmailValid = emailPattern.test(emailInput.value.trim());
             const isDateValid = bookingDateInput.value !== "";
+            const isPackageValid = packageSelectDropdown ? (packageSelectDropdown.value !== "") : true;
 
             validateField(fullNameInput, isNameValid);
             validateField(emailInput, isEmailValid);
             validateField(bookingDateInput, isDateValid);
+            if (packageSelectDropdown) {
+                validateField(packageSelectDropdown, isPackageValid);
+            }
 
             // Halt if validation errors exist
-            if (!isNameValid || !isEmailValid || !isDateValid) {
+            if (!isNameValid || !isEmailValid || !isDateValid || !isPackageValid) {
                 return;
             }
 
-            // Halt if no time slot is selected (all booked)
+            // Halt if no time slot is selected
             if (!selectedTimeSlot) {
-                showToast("All slots are booked for this date! Please choose a different date.");
+                showToast("Please select a preferred time slot.");
                 return;
             }
 
@@ -795,7 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Format WhatsApp API redirect URL
                 const waNumber = "7499032210";
-                let waMessage = `Hello Aditya! I would like to book a photography session with 404 Frames.\n\n`;
+                let waMessage = `Hello Aditya! I would like to book a photography session with 404 Chronicles.\n\n`;
                 waMessage += `*Booking Details:*\n`;
                 waMessage += `- *Name:* ${name}\n`;
                 waMessage += `- *Email:* ${email}\n`;
